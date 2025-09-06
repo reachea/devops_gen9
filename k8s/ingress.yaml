@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: spring-ingress
+  namespace: spring-demo
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+    - host: spring.159.223.95.128.nip.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: spring-svc
+                port:
+                  number: 8080
