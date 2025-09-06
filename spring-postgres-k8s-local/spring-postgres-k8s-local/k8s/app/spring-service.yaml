@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-svc
+  namespace: spring-demo
+  labels:
+    app: spring-app
+spec:
+  selector:
+    app: spring-app
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP
